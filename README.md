@@ -22,4 +22,5 @@ User and password: kypo
 Actual problems to solve:
 Virtual Box is showing the green turtle indicating that there is a conflict with Hyper-V.
 
-
+I tried: bcdedit /set hypervisorlaunchtype off
+didnt work
