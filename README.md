@@ -24,3 +24,4 @@ Virtual Box is showing the green turtle indicating that there is a conflict with
 
 I tried: bcdedit /set hypervisorlaunchtype off
 didnt work
+I found out the solution: the annoying green turtle can be annihilated opening windows defender: device security --> core isolation details --> turn memory integrity off
