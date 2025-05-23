@@ -42,7 +42,7 @@ https://docs.openstack.org/kolla-ansible/latest/user/quickstart.html
 2. sudo apt install git python3-dev libffi-dev gcc libssl-dev libdbus-glib-1-dev --> had to use: sudo aptitude install git python3-dev libffi-dev gcc libssl-dev libdbus-glib-1-dev and then respond with a "n" and then a "y"
 3. sudo apt install python3-venv same, done with aptitude
 4. python3 -m venv ~/kolla-ansible/venv
-5. source ~/kolla-ansible/venv/bin/activate
+5. source ~/kolla-ansible/venv/bin/activate (use this every time you get out the environment)
 6. pip install -U pip
 7. pip install git+https://opendev.org/openstack/kolla-ansible@master
 8. sudo mkdir -p /etc/kolla
@@ -56,14 +56,51 @@ https://docs.openstack.org/kolla-ansible/latest/user/quickstart.html
     openstack_tag_suffix: "-aarch64"
     network_interface: "eth0"
     neutron_external_interface: "eth1"
-    kolla_internal_vip_address: "10.1.0.250"
+    kolla_internal_vip_address: "10.0.2.100" (should be into same subnet as your eth0)
 15. kolla-ansible bootstrap-servers -i ./all-in-one
 16. kolla-ansible prechecks -i ./all-in-one
 gives docker error:
 pip install docker
 gives dbus error:
 pip3 install dbus-python
-gives 
+17. gives sudo error: sudo visudo
+kypo ALL=(ALL) NOPASSWD: ALL
+18. network interfaces name conflict:
+sudo nano /etc/default/grub
+GRUB_CMDLINE_LINUX="net.ifnames=0 biosdevname=0"
+sudo update-grub
+sudo reboot
+19. TASK [loadbalancer : Checking if kolla_internal_vip_address is in the same network as api_interface on all nodes]
+fatal: [localhost]: FAILED! => {
+  "cmd": ["ip", "-o", "addr", "show", "dev", "eth0"],
+  ...
+}
+had a misconfiguration on  kolla_internal_vip_address and was not into same subnet as eth0
+
+20.kolla-ansible deploy -i ./all-in-one
+gives error of versioning quay.io:
+nano /etc/kolla/globals.yml
+comment out: # openstack_tag_suffix: "-aarch64"
+add this line: kolla_tag: "master-ubuntu-jammy"
+execute: kolla-ansible deploy -i ./all-in-one
+after sucessfull operation:
+21. pip install python-openstackclient -c https://releases.openstack.org/constraints/upper/master
+22. kolla-ansible -i ./all-in-one post-deploy
+23. mkdir -p ~/.config/openstack
+24. cp /etc/kolla/clouds.yaml ~/.config/openstack/
+25. export OS_CLIENT_CONFIG_FILE=/etc/kolla/clouds.yaml
+26. to check if openstack is working: 
+openstack --os-cloud kolla-admin project list
+![image](https://github.com/user-attachments/assets/33861ac5-4b71-4043-91c2-52114b125ffc)
+openstack --os-cloud kolla-admin service list
+![image](https://github.com/user-attachments/assets/3f12f36c-ea15-4a71-8b28-80ad02e7eb95)
+
+NOW WE HAVE A FULLY WORKING OPENSTACK KOLLA ANSIBLE WITH KYPO REQUIREMENTS
+
+
+TODO:
+init-runonce on a cloned machine to test????
+start deploying KYPO
 
 
 
