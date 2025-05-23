@@ -101,14 +101,3 @@ NOW WE HAVE A FULLY WORKING OPENSTACK KOLLA ANSIBLE WITH KYPO REQUIREMENTS
 TODO:
 init-runonce on a cloned machine to test????
 start deploying KYPO
-
-
-
-
-
-
-
-
-
-
-
