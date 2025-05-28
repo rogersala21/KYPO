@@ -114,6 +114,29 @@ openstack application credential create kypo
 
 Deployment of OpenStack base resources:
 cd
+mkdir -p app-creds
+sudo nano app-cred-kypo-openrc.sh -->
+---
+export OS_AUTH_TYPE=v3applicationcredential
+export OS_AUTH_URL=http://10.0.2.100:5000/v3
+
+export OS_APPLICATION_CREDENTIAL_ID=xxxxx
+export OS_APPLICATION_CREDENTIAL_SECRET="xxxxx"
+---
+
+sudo chmod 600 app-cred-kypo-openrc.sh
+sudo chmod 777 app-cred-kypo-openrc.sh
+
+source app-cred-kypo-openrc.sh
+
+cd /home/kypo/kypo-crp-tf-deployment/tf-openstack-base
+
+
+
+
+
+
+
 
 
 
