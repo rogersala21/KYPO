@@ -100,4 +100,20 @@ NOW WE HAVE A FULLY WORKING OPENSTACK KOLLA ANSIBLE WITH KYPO REQUIREMENTS
 
 TODO:
 init-runonce on a cloned machine to test????
-start deploying KYPO
+start deploying KYPO:
+snap install terraform --classic
+git clone https://gitlab.ics.muni.cz/muni-kypo-crp/devops/kypo-crp-tf-deployment.git
+
+source /etc/kolla/admin-openrc.sh
+env | grep OS_
+![image](https://github.com/user-attachments/assets/7545fbf1-6e29-4471-9dc1-97471838f4b4)
+
+openstack application credential create kypo
+![image](https://github.com/user-attachments/assets/5072e657-534e-423d-8557-6d28a97bdb31)
+
+
+Deployment of OpenStack base resources:
+cd
+
+
+
