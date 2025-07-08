@@ -133,6 +133,15 @@ snap install terraform --classic
 git clone https://gitlab.ics.muni.cz/muni-kypo-crp/devops/kypo-crp-tf-deployment.git
 
 
+cd kypo-crp-tf-deployment
+source /home/kypo/app-creds/app-cred-kypo-openrc.sh
+cd tf-openstack-base
+openstack network list --external --column Name
+
+
+
+
+
 
 
 init-runonce on a cloned machine to test????
