@@ -141,9 +141,6 @@ openstack network list --external --column Name
 
 
 
-
-
-
 init-runonce on a cloned machine to test????
 
 
