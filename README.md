@@ -180,6 +180,13 @@ terraform init
 <img width="635" height="145" alt="image" src="https://github.com/user-attachments/assets/29268f63-584b-4061-b715-67c32a2187a8" />
 
 
+For private OpenStack cloud deployments with admin application credentials (OUR CASE), Terraform can deploy all required OpenStack resources.
+
+Deploy all OpenStack resources:
+
+terraform apply -var-file tfvars/deployment.tfvars -var-file tfvars/vars-all.tfvars
+
+THIS COMMAND WILL DO A BUNCH OF STUFF
 
 
 init-runonce on a cloned machine to test????
