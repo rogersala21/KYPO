@@ -138,7 +138,41 @@ source /home/kypo/app-creds/app-cred-kypo-openrc.sh
 cd tf-openstack-base
 openstack network list --external --column Name
 
+NOTHING APPEARS, to solve:
 
+sudo apt install isc-dhcp-client
+sudo dhclient eth1
+ip addr show eth1:
+192.168.56.101/24
+
+HOST MACHINE:
+Ethernet adapter Ethernet 2:
+
+   Connection-specific DNS Suffix  . :
+   IPv4 Address. . . . . . . . . . . : 192.168.56.1
+   Subnet Mask . . . . . . . . . . . : 255.255.255.0
+   Default Gateway . . . . . . . . . :
+
+
+openstack network create external_network --external --provider-network-type flat --provider-physical-network physnet1
+openstack subnet create external_subnet \
+  --network external_network \
+  --subnet-range 192.168.56.0/24 \
+  --gateway 192.168.56.1 \
+  --allocation-pool start=192.168.56.100,end=192.168.56.200 \
+  --dns-nameserver 8.8.8.8 \
+  --no-dhcp
+
+openstack network list
+openstack subnet list
+openstack network list --external --column Name
+<img width="928" height="283" alt="image" src="https://github.com/user-attachments/assets/166bbe9e-cde0-446e-9778-7f87e8ee3238" />
+
+cp tfvars/deployment.tfvars-template tfvars/deployment.tfvars
+
+nano tfvars/deployment.tfvars
+add:
+external_network_name = "external_network"
 
 
 init-runonce on a cloned machine to test????
