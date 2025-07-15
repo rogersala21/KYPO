@@ -189,6 +189,10 @@ terraform apply -var-file tfvars/deployment.tfvars -var-file tfvars/vars-all.tfv
 THIS COMMAND WILL DO A BUNCH OF STUFF
 
 
+AFTER REBOOT: source ~/kolla-ansible/venv/bin/activate
+
+
+
 init-runonce on a cloned machine to test????
 
 
