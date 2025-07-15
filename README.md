@@ -175,6 +175,13 @@ add:
 external_network_name = "external_network"
 
 
+terraform init
+
+<img width="635" height="145" alt="image" src="https://github.com/user-attachments/assets/29268f63-584b-4061-b715-67c32a2187a8" />
+
+
+
+
 init-runonce on a cloned machine to test????
 
 
