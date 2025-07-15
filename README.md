@@ -188,8 +188,10 @@ terraform apply -var-file tfvars/deployment.tfvars -var-file tfvars/vars-all.tfv
 
 THIS COMMAND WILL DO A BUNCH OF STUFF
 
+the command failed because no HDD space was left into the machine
 
 AFTER REBOOT: source ~/kolla-ansible/venv/bin/activate
+source ~/app-creds/app-cred-kypo-openrc.sh
 
 
 
