@@ -384,6 +384,14 @@ source ~/app-creds/app-cred-kypo-openrc.sh
 ## Summary
 
 This documentation provides a complete walkthrough for setting up KYPO Cyber Range using OpenStack and Kolla Ansible. The installation includes proper network configuration, credential management, and deployment of all necessary resources for a functional cybersecurity education environment.
+This documentation provides a complete walkthrough for setting up KYPO Cyber Range using OpenStack and Kolla Ansible. The installation includes proper network configuration, credential management, and deployment of all necessary resources for a functional cybersecurity education environment.
+
+The installation failed because my hardware does not meet the minimum requirements. However, I was very close to completing the process. The guides I followed were:  
+**Reference**: [General Deployment Guide](https://gitlab.ics.muni.cz/muni-kypo-crp/devops/kypo-crp-tf-deployment#preparing-the-deployment-environment)  
+**Reference**: [Deployment of OpenStack Base Resources](https://gitlab.ics.muni.cz/muni-kypo-crp/devops/kypo-crp-tf-deployment/-/blob/master/BASE.md)  
+**Reference**: [Deployment of KYPO-CRP Helm Application](https://gitlab.ics.muni.cz/muni-kypo-crp/devops/kypo-crp-tf-deployment/-/blob/master/HELM.md)  
+**Reference**: [Kolla Ansible QuickStart Guide](https://docs.openstack.org/kolla-ansible/latest/user/quickstart.html)
+
 
 
 
