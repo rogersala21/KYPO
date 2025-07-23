@@ -391,7 +391,7 @@ The installation failed because my hardware does not meet the minimum requiremen
 - [Deployment of OpenStack Base Resources](https://gitlab.ics.muni.cz/muni-kypo-crp/devops/kypo-crp-tf-deployment/-/blob/master/BASE.md) **FAILED ON LAST STEP**
 - [Deployment of KYPO-CRP Helm Application](https://gitlab.ics.muni.cz/muni-kypo-crp/devops/kypo-crp-tf-deployment/-/blob/master/HELM.md) 
 
-Note that exists a [KYPO Lite](https://gitlab.ics.muni.cz/muni-kypo-crp/devops/kypo-lite) version to make the deployment as simple as possible for testing and evaluation of the platform, but again I don't meet the minimum hardware requeriments.
+> **Note**: Exists a [KYPO Lite](https://gitlab.ics.muni.cz/muni-kypo-crp/devops/kypo-lite) version to make the deployment as simple as possible for testing and evaluation of the platform, but again I don't meet the minimum hardware requeriments.
 
 
 
